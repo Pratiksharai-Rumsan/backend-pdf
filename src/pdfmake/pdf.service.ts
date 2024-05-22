@@ -7,7 +7,8 @@ import { organizationConfig } from './organization-config';
 @Injectable()
 export class PdfMakeService {
   generatePdf(createPdfDto) {
-    const orgConfig = organizationConfig[createPdfDto.OrgName];
+    console.log(createPdfDto, 'createddto');
+    const orgConfig = organizationConfig[createPdfDto.orgName];
 
     const { fonts, pages, textPositions } = orgConfig;
 

@@ -24,5 +24,5 @@ export class CreatePdfDto {
 
   @IsNotEmpty()
   @IsString()
-  OrgName: string;
+  orgName: string;
 }

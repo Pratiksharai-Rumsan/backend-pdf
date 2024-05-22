@@ -15,7 +15,7 @@ export class PdfMakeController {
     //pdfDoc.pipe(response);
     //pdfDoc.end();
   }
-  @Post('/generate')
+  @Post()
   async generatePdf(
     @Body() createPdfDto: CreatePdfDto,
     @Res() response: Response,
