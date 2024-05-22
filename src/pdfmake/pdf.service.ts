@@ -13,6 +13,68 @@ export class PdfMakeService {
     console.log(pages[0], 'checkpage');
 
     const printer = new PdfPrinter(fonts);
+    const docContent = [];
+
+    pages.forEach((page, index) => {
+      docContent.push({
+        image: page,
+        fit: [300, 420],
+        pageBreak: index < pages.length - 1 ? 'after' : null,
+      });
+
+      // Add overlay text only to the first page
+      if (index === 0) {
+        const firstName = createPdfDto.name.split(' ')[0];
+        const lastName = createPdfDto.name.split(' ').slice(1).join(' ');
+
+        docContent.push(
+          {
+            text: firstName,
+            font: 'Roboto',
+            alignment: 'center',
+            fontSize: 4.5,
+            absolutePosition: textPositions.name,
+          },
+          {
+            text: lastName,
+            font: 'Roboto',
+            alignment: 'center',
+            fontSize: 4.5,
+            absolutePosition: textPositions.lastName,
+          },
+          {
+            text: createPdfDto.location,
+            font: 'Roboto',
+            alignment: 'center',
+            fontSize: 4.5,
+            absolutePosition: textPositions.location,
+          },
+          {
+            text: createPdfDto.email || '',
+            font: 'Roboto',
+            alignment: 'center',
+            fontSize: 4.5,
+            absolutePosition: textPositions.email,
+          },
+          {
+            text: createPdfDto.dob,
+            font: 'Roboto',
+            alignment: 'center',
+            fontSize: 4.5,
+            absolutePosition: textPositions.dob,
+          },
+          {
+            text: createPdfDto.phone,
+            font: 'Roboto',
+            alignment: 'center',
+            fontSize: 4.5,
+            absolutePosition: textPositions.phone,
+          },
+        );
+      }
+    });
+
+    console.log('Document Content:', docContent);
 
     const docDefinition = {
       pageMargins: [0, 0, 0, 0],
@@ -20,98 +82,8 @@ export class PdfMakeService {
         width: 300,
         height: 'auto',
       },
-      content: [],
+      content: docContent,
     };
-
-    const firstName = createPdfDto.name.split(' ')[0];
-    const lastName = createPdfDto.name.split(' ').slice(1).join(' ');
-
-    docDefinition.content.push(
-      {
-        image: pages[0],
-        fit: [300, 420],
-      },
-      {
-        text: firstName,
-        font: 'Roboto',
-        alignment: 'center',
-        fontSize: 4.5,
-        absolutePosition: textPositions.name,
-      },
-      {
-        text: lastName,
-        font: 'Roboto',
-        alignment: 'center',
-        fontSize: 4.5,
-        absolutePosition: textPositions.lastName,
-      },
-      {
-        text: createPdfDto.location,
-        font: 'Roboto',
-        alignment: 'center',
-        fontSize: 4.5,
-        absolutePosition: textPositions.location,
-      },
-      {
-        text: createPdfDto.email ? createPdfDto.email : null,
-        font: 'Roboto',
-        alignment: 'center',
-        fontSize: 4.5,
-        absolutePosition: textPositions.email,
-      },
-      {
-        text: createPdfDto.dob,
-        font: 'Roboto',
-        alignment: 'center',
-        fontSize: 4.5,
-        absolutePosition: textPositions.dob,
-      },
-      {
-        text: createPdfDto.phone,
-        font: 'Roboto',
-        alignment: 'center',
-        fontSize: 4.5,
-        absolutePosition: textPositions.phone,
-      },
-    );
-    if (pages.length > 1) {
-      pages.slice(1).forEach((page, index) => {
-        docDefinition.content.push({
-          image: page,
-          fit: [300, 420],
-          pageBreak: 'after',
-        });
-      });
-    }
-
-    // pages.slice(1).forEach((page, index) => {
-    //   docDefinition.content.push({
-    //     image: page,
-    //     fit: [300, 420],
-    //     pageBreak: index < pages.length - 1 ? 'after' : null,
-    //   });
-    // });
-
-    //   // Define document content using orgConfig
-    //const docContent = [];
-    // pages.forEach((page, index) => {
-    //   docDefinition.content.push({
-    //     image: page,
-    //     fit: [300, 420],
-    //     pageBreak: index < pages.length - 1 ? 'after' : null,
-    //   });
-    // });
-
-    //console.log(docContent, 'docContent');
-
-    // const docDefinition = {
-    //   pageMargins: [0, 0, 0, 0],
-    //   pageSize: {
-    //     width: 300,
-    //     height: 'auto',
-    //   },
-    //   content: docContent,
-    // };
 
     const options = {};
     return printer.createPdfKitDocument(docDefinition, options);
