@@ -50,16 +50,16 @@ export const organizationConfig = {
       ),
     ],
     textPositions: {
-      name: { x: -130, y: 93 },
-      lastName: { x: -130, y: 103 },
+      name: { x: -130, y: 83 },
+      lastName: { x: -130, y: 93 },
       location: { x: -130, y: 119 },
-      email: { x: -130, y: 138 },
-      dob: { x: 120, y: 93 },
-      phone: { x: 120, y: 114 },
+      email: { x: -130, y: 151 },
+      dob: { x: 150, y: 83 },
+      phone: { x: 150, y: 118 },
     },
     //checkMarkPath: 'path/to/black-checkmark.png',
   },
-  redcross: {
+  bharatpurredcross: {
     fonts: {
       Roboto: {
         normal: path.join(
@@ -81,17 +81,17 @@ export const organizationConfig = {
         'src',
         'pdfmake',
         'template',
-        'redcross',
+        'redcross-bharatpur',
         'red-cross.jpg',
       ),
     ],
     textPositions: {
-      name: { x: -130, y: 93 },
-      lastName: { x: -130, y: 103 },
-      location: { x: -130, y: 119 },
-      email: { x: -130, y: 138 },
-      dob: { x: 120, y: 93 },
-      phone: { x: 120, y: 114 },
+      name: { x: -130, y: 82 },
+      lastName: { x: -100, y: 82 },
+      location: { x: -130, y: 115 },
+      email: { x: 80, y: 123 },
+      dob: { x: 120, y: 82 },
+      phone: { x: 120, y: 93 },
     },
     //checkMarkPath: 'path/to/other-checkmark.png',
   },
@@ -143,5 +143,134 @@ export const organizationConfig = {
     },
     //checkMarkPath: 'path/to/other-checkmark.png',
   },
-  // Add configurations for other organizations with their respective pages
+  frontline: {
+    fonts: {
+      Roboto: {
+        normal: path.join(
+          __dirname,
+          '..',
+          '..',
+          'src',
+          'pdfmake',
+          'template',
+          'Roboto-Regular.ttf',
+        ),
+      },
+    },
+    pages: [
+      path.join(
+        __dirname,
+        '..',
+        '..',
+        'src',
+        'pdfmake',
+        'template',
+        'frontline',
+        'frontline-1.png',
+      ),
+
+      path.join(
+        __dirname,
+        '..',
+        '..',
+        'src',
+        'pdfmake',
+        'template',
+        'frontline',
+        'frontline-2.png',
+      ),
+      path.join(
+        __dirname,
+        '..',
+        '..',
+        'src',
+        'pdfmake',
+        'template',
+        'frontline',
+        'frontline-3.png',
+      ),
+    ],
+    textPositions: {
+      name: { x: -130, y: 93 },
+      lastName: { x: -130, y: 103 },
+      location: { x: -130, y: 119 },
+      email: { x: -130, y: 138 },
+      dob: { x: 120, y: 93 },
+      phone: { x: 120, y: 114 },
+    },
+    //checkMarkPath: 'path/to/other-checkmark.png',
+  },
+  lalitpurredcross: {
+    fonts: {
+      Roboto: {
+        normal: path.join(
+          __dirname,
+          '..',
+          '..',
+          'src',
+          'pdfmake',
+          'template',
+          'Roboto-Regular.ttf',
+        ),
+      },
+    },
+    pages: [
+      path.join(
+        __dirname,
+        '..',
+        '..',
+        'src',
+        'pdfmake',
+        'template',
+        'redcross-lalitpur',
+        'lalitpur-redcross.png',
+      ),
+    ],
+    textPositions: {
+      name: { x: -130, y: 67 },
+      lastName: { x: -100, y: 67 },
+      location: { x: -130, y: 75 },
+      email: { x: 80, y: 97 },
+      dob: { x: 120, y: 67 },
+      phone: { x: 120, y: 77 },
+    },
+    //che
+  },
+
+  prasuti: {
+    fonts: {
+      Roboto: {
+        normal: path.join(
+          __dirname,
+          '..',
+          '..',
+          'src',
+          'pdfmake',
+          'template',
+          'Roboto-Regular.ttf',
+        ),
+      },
+    },
+    pages: [
+      path.join(
+        __dirname,
+        '..',
+        '..',
+        'src',
+        'pdfmake',
+        'template',
+        'prasuti',
+        'prasuti.png',
+      ),
+    ],
+    textPositions: {
+      name: { x: -180, y: 50 },
+      lastName: { x: -150, y: 50 },
+      location: { x: -200, y: 58 },
+      email: { x: -188, y: 72 },
+      dob: { x: -50, y: 45 },
+      phone: { x: -188, y: 65 },
+    },
+    //che
+  },
 };

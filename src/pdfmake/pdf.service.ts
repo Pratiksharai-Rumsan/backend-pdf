@@ -10,7 +10,6 @@ export class PdfMakeService {
     const orgConfig = organizationConfig[createPdfDto.OrgName];
 
     const { fonts, pages, textPositions } = orgConfig;
-    console.log(pages[0], 'checkpage');
 
     const printer = new PdfPrinter(fonts);
     const docContent = [];
@@ -19,7 +18,7 @@ export class PdfMakeService {
       docContent.push({
         image: page,
         fit: [300, 420],
-        pageBreak: index < pages.length - 1 ? 'after' : null,
+        pageBreak: index > 0 && index < pages.length - 1 ? 'after' : null,
       });
 
       // Add overlay text only to the first page
@@ -69,6 +68,7 @@ export class PdfMakeService {
             alignment: 'center',
             fontSize: 4.5,
             absolutePosition: textPositions.phone,
+            pageBreak: index < pages.length - 1 ? 'after' : null,
           },
         );
       }
