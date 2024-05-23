@@ -3,17 +3,16 @@ GET http://localhost:5600/v1/events?page=1
 
 
 ###
-POST http://localhost:3001/v1/pledgors
+POST http://localhost:3001/pdfmake
 content-type: application/json
 
 {
 "name":"samantha",
 "phone":"9813243989",
-"dop":"01-23-1999",
+"dob":"01-23-1999",
 "gender":"FEMALE",
-"bloodGroup":"A_POSITIVE",
 "location":"Kapan",
-"eventId":"f75ca61c-a9f7-47de-bd8d-254c36e3ee6d"
+"orgName":"prasuti"
 
 }
 
