@@ -21,7 +21,13 @@ export class PdfMakeController {
     @Res() response: Response,
   ) {
     const pdfDoc = this.pdfService.generatePdf(createPdfDto);
+    //response.setHeader('Content-Type', 'application/pdf');
+    //response.setHeader('Content-Disposition', 'inline; filename=document.pdf');
     //console.log(pdfDoc, 'pdfdoc');
+    response.set({
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': 'inline; filename=document.pdf',
+    });
 
     pdfDoc.pipe(response);
     const outputFolder = path.join(
@@ -37,6 +43,6 @@ export class PdfMakeController {
     const fileStream = fs.createWriteStream(outputFile);
     pdfDoc.pipe(fileStream);
     pdfDoc.end();
-    return { message: 'PDF generated and saved successfully' };
+    //return { message: 'PDF generated and saved successfully' };
   }
 }

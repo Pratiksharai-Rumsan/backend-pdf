@@ -75,7 +75,7 @@ export class PdfMakeService {
       }
     });
 
-    console.log('Document Content:', docContent);
+  
 
     const docDefinition = {
       pageMargins: [0, 0, 0, 0],

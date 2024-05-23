@@ -2,7 +2,7 @@ import * as path from 'path';
 //const projectRoot = path.resolve(__dirname, '..', '..', 'src');
 
 export const organizationConfig = {
-  medicity: {
+  mediciti: {
     fonts: {
       Roboto: {
         //normal: path.join(__dirname, 'template', 'Roboto-Regular.ttf'),
@@ -59,7 +59,7 @@ export const organizationConfig = {
     },
     //checkMarkPath: 'path/to/black-checkmark.png',
   },
-  bharatpurredcross: {
+  redcrossbharatpur: {
     fonts: {
       Roboto: {
         normal: path.join(
@@ -200,7 +200,7 @@ export const organizationConfig = {
     },
     //checkMarkPath: 'path/to/other-checkmark.png',
   },
-  lalitpurredcross: {
+  redcrosslalitpur: {
     fonts: {
       Roboto: {
         normal: path.join(
@@ -271,6 +271,5 @@ export const organizationConfig = {
       dob: { x: -50, y: 45 },
       phone: { x: -188, y: 65 },
     },
-    //che
   },
 };
